@@ -11,5 +11,8 @@
   "bugs": {
     "url": "https://github.com/strika/ca-world/issues"
   },
-  "homepage": "https://github.com/strika/ca-world"
+  "homepage": "https://github.com/strika/ca-world",
+  "devDependencies": {
+    "jasmine": "^3.4.0"
+  }
 }
