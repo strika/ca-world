@@ -1,0 +1,19 @@
+{
+  "name": "ca-world",
+  "version": "1.0.0",
+  "description": "Cellular Automata experiments.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strika/ca-world.git"
+  },
+  "author": "Nebojša Stričević",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/strika/ca-world/issues"
+  },
+  "homepage": "https://github.com/strika/ca-world#readme"
+}
