@@ -3,9 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>Cellular Automata World v1</title>
+
     <script src="../../node_modules/immutable/dist/immutable.min.js"></script>
+    <script src="World.js"></script>
+    <script src="WorldView.js"></script>
   </head>
   <body>
     <h1>Cellular Automata World v1</h1>
+
+    <div id="world"></div>
+
+    <script>
+      var world = World.create(10, 10),
+          worldView = WorldView.create("world"),
+          nextCellState = function(cell) {
+            return {
+              alive: Math.random() > 0.7 ? true : false
+            };
+          };
+
+      for (var i = 0; i < 100; i++) {
+        World.nextState(world, nextCellState);
+      }
+    </script>
   </body>
 </html>
