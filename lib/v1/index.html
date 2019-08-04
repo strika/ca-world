@@ -11,20 +11,29 @@
   <body>
     <h1>Cellular Automata World v1</h1>
 
-    <div id="world"></div>
+    <canvas id="world"></canvas>
 
     <script>
-      var world = World.create(10, 10),
-          worldView = WorldView.create("world"),
-          nextCellState = function(cell) {
-            return {
-              alive: Math.random() > 0.7 ? true : false
-            };
-          };
-
-      for (var i = 0; i < 100; i++) {
-        World.nextState(world, nextCellState);
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
       }
+
+      async function experiment() {
+        var world = World.create(100, 100),
+            nextCellState = function(cell) {
+              return {
+                alive: Math.random() > 0.7 ? true : false
+              };
+            };
+
+        for (var i = 0; i < 100; i++) {
+          world = World.nextState(world, nextCellState);
+          WorldView.display("world", world);
+          await sleep(300);
+        }
+      }
+
+      experiment();
     </script>
   </body>
 </html>
