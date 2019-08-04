@@ -11,6 +11,16 @@
   <body>
     <h1>Cellular Automata World v1</h1>
 
+    <p>
+      In this experiment each cell has 0.2 chance to be alive in the next
+      iteration, whatever it's current state is.
+    </p>
+
+    <p>
+      The experiment displays 100 iteration of 100x100 world with 300ms sleep
+      between each iteration.
+    </p>
+
     <canvas id="world"></canvas>
 
     <script>
@@ -22,7 +32,7 @@
         var world = World.create(100, 100),
             nextCellState = function(cell) {
               return {
-                alive: Math.random() > 0.7 ? true : false
+                alive: Math.random() > 0.8 ? true : false
               };
             };
 
