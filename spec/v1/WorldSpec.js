@@ -1,5 +1,3 @@
-const World = require('../../lib/v1/World');
-
 describe('World', () => {
   describe('#create', () => {
     it('returns a new world', () => {
