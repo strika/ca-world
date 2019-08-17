@@ -2,8 +2,8 @@ describe('World', () => {
   describe('#create', () => {
     it('returns a new world', () => {
       const world = World.create(3, 2);
-      expect(world.size).toEqual(2);
-      expect(world.get(0).size).toEqual(3);
+      expect(world.length).toEqual(2);
+      expect(world[0].length).toEqual(3);
     });
   });
 
@@ -16,7 +16,7 @@ describe('World', () => {
 
       for (let i = 0; i < 2; i += 1) {
         for (let j = 0; j < 2; j += 1) {
-          const cell = world.get(i).get(j);
+          const cell = world[i][j];
           expect(cell).toEqual(i + j);
         }
       }
