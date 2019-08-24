@@ -25,13 +25,13 @@ describe('World', () => {
 
   describe('#neighborhood', () => {
     it('returns the neighborhood cells of the cell, including the cell', () => {
-      const world = Immutable.List(
+      const world = Immutable.List([
         Immutable.List([0, 1, 0, 0]),
         Immutable.List([1, 0, 1, 0]),
         Immutable.List([1, 0, 1, 0]),
         Immutable.List([1, 0, 1, 0]),
-      );
-      const neighborhood = World.neighborhood(world, 1, 1);
+      ]);
+      const neighborhood = World.neighborhood(world, 1, 1).toArray();
 
       expect(neighborhood).toEqual([0, 1, 0, 1, 0, 1, 1, 0, 1]);
     });
