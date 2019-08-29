@@ -24,7 +24,7 @@ describe('World', () => {
   });
 
   describe('#neighborhood', () => {
-    it('returns the neighborhood cells of the cell, including the cell', () => {
+    it('returns the neighborhood cells of the cell', () => {
       const world = Immutable.List([
         Immutable.List([0, 1, 0, 0]),
         Immutable.List([1, 0, 1, 0]),
@@ -33,11 +33,11 @@ describe('World', () => {
       ]);
       const neighborhood = World.neighborhood(world, 1, 1).toArray();
 
-      expect(neighborhood).toEqual([0, 1, 1, 1, 0, 0, 0, 1, 1]);
+      expect(neighborhood).toEqual([0, 1, 1, 1, 0, 0, 1, 1]);
     });
 
     describe('when coordinates are in a corner', () => {
-      it('returns the neighborhood cells of the cell, including the cell', () => {
+      it('returns the neighborhood cells of the cell', () => {
         const world = Immutable.List([
           Immutable.List([0, 1, 0]),
           Immutable.List([1, 0, 1]),
@@ -45,7 +45,7 @@ describe('World', () => {
         ]);
         const neighborhood = World.neighborhood(world, 2, 2).toArray();
 
-        expect(neighborhood).toEqual([0, 0, 1, 1]);
+        expect(neighborhood).toEqual([0, 0, 1]);
       });
     });
   });
@@ -54,7 +54,7 @@ describe('World', () => {
     it('returns the number of alive cells in the neighborhood', () => {
       const world = Immutable.List([
         Immutable.List([0, 1, 0, 0]),
-        Immutable.List([1, 0, 1, 0]),
+        Immutable.List([1, 1, 1, 0]),
         Immutable.List([1, 0, 1, 0]),
         Immutable.List([1, 0, 1, 0]),
       ]);
