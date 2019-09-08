@@ -33,7 +33,7 @@
         WorldView.display("world", world);
         await sleep(4000);
 
-        for (var i = 0; i < 300; i++) {
+        while(true) {
           world = World.nextState(world, GameOfLife.nextCellState);
           WorldView.display("world", world);
           await sleep(200);
