@@ -7,6 +7,32 @@ describe('World', () => {
     });
   });
 
+  describe('#isAlive', () => {
+    describe('when cell is alive', () => {
+      it('returns true', () => {
+        const world = Immutable.List([
+          Immutable.List([0, 0, 0]),
+          Immutable.List([0, 1, 0]),
+          Immutable.List([0, 0, 0]),
+        ]);
+
+        expect(World.isAlive(world, 1, 1)).toEqual(true);
+      });
+    });
+
+    describe('when cell is dead', () => {
+      it('returns false', () => {
+        const world = Immutable.List([
+          Immutable.List([0, 0, 0]),
+          Immutable.List([0, 0, 0]),
+          Immutable.List([0, 0, 0]),
+        ]);
+
+        expect(World.isAlive(world, 1, 1)).toEqual(false);
+      });
+    });
+  });
+
   describe('#nextState', () => {
     it('applies the next state function to all cells', () => {
       const nextCellState = (_, x, y) => x + y;
