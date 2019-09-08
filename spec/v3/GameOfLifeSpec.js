@@ -49,5 +49,19 @@ describe('GameOfLife', () => {
         });
       });
     });
+
+    describe('when cell is dead', () => {
+      describe('when cell has 2 live neighbors', () => {
+        it('stays dead', () => {
+          const world = Immutable.List([
+            Immutable.List([1, 1, 0]),
+            Immutable.List([0, 0, 0]),
+            Immutable.List([0, 0, 0]),
+          ]);
+
+          expect(GameOfLife.nextCellState(world, 1, 1)).toEqual(0);
+        });
+      });
+    });
   });
 });
