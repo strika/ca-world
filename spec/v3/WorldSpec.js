@@ -12,11 +12,11 @@ describe('World', () => {
       it('returns true', () => {
         const world = Immutable.List([
           Immutable.List([0, 0, 0]),
-          Immutable.List([0, 1, 0]),
           Immutable.List([0, 0, 0]),
+          Immutable.List([1, 0, 0]),
         ]);
 
-        expect(World.isAlive(world, 1, 1)).toEqual(true);
+        expect(World.isAlive(world, 0, 2)).toEqual(true);
       });
     });
 
