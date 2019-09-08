@@ -35,15 +35,15 @@ describe('World', () => {
 
   describe('#nextState', () => {
     it('applies the next state function to all cells', () => {
-      const nextCellState = (_, x, y) => x + y;
+      const nextCellState = (_, x, y) => x + 2 * y;
       let world = World.create(2, 2);
 
       world = World.nextState(world, nextCellState);
 
       for (let i = 0; i < 2; i += 1) {
         for (let j = 0; j < 2; j += 1) {
-          const cell = world.get(i).get(j);
-          expect(cell).toEqual(i + j);
+          const cell = world.get(j).get(i);
+          expect(cell).toEqual(i + 2 * j);
         }
       }
     });
@@ -57,9 +57,9 @@ describe('World', () => {
         Immutable.List([1, 0, 1, 0]),
         Immutable.List([1, 0, 1, 0]),
       ]);
-      const neighborhood = World.neighborhood(world, 1, 1).toArray();
+      const neighborhood = World.neighborhood(world, 1, 2).toArray();
 
-      expect(neighborhood).toEqual([0, 1, 1, 1, 0, 0, 1, 1]);
+      expect(neighborhood).toEqual([1, 1, 1, 0, 0, 1, 1, 1]);
     });
 
     describe('when coordinates are in a corner', () => {
@@ -85,7 +85,7 @@ describe('World', () => {
         Immutable.List([1, 0, 1, 0]),
       ]);
 
-      expect(World.aliveInNeighborhood(world, 1, 1)).toEqual(5);
+      expect(World.aliveInNeighborhood(world, 1, 2)).toEqual(7);
     });
   });
 });
