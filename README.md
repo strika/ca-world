@@ -16,3 +16,9 @@ Each cell has the same chance to be alive in the next iteration, regardless of
 the current state and the neighborhood.
 
 Based on the standard JavaScript Array.
+
+## Experiment v3
+
+Game of Live based on Immutable.
+
+Time required for 1000 iterations on 100x100 board - 120839ms (2 minutes).
