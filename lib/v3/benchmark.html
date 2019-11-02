@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cellular Automata World v3 - Benchmark</title>
+
+    <script src="../../node_modules/immutable/dist/immutable.min.js"></script>
+    <script src="World.js"></script>
+    <script src="WorldView.js"></script>
+    <script src="GameOfLife.js"></script>
+  </head>
+  <body>
+    <h1>Cellular Automata World v3 - Benchmark</h1>
+
+    <p id="result"></p>
+
+    <script>
+      function timer(name) {
+        var start = new Date();
+        return {
+          stop: function() {
+            var end  = new Date();
+            return end.getTime() - start.getTime();
+          }
+        }
+      }
+
+      function experiment() {
+        var t = null,
+            time = null,
+            world = World.create(100, 100),
+            randomNextState = function(cell) {
+              return Math.random() > 0.5 ? 1 : 0;
+            };
+
+        world = World.nextState(world, randomNextState);
+
+        t = timer('Experiment');
+
+        for(var i = 0; i < 1000; i++) {
+          world = World.nextState(world, GameOfLife.nextCellState);
+        }
+
+        time = t.stop();
+
+        document.getElementById("result").innerHTML = time;
+      }
+
+      experiment();
+    </script>
+  </body>
+</html>
