@@ -51,25 +51,25 @@ describe('World', () => {
 
   describe('#neighborhood', () => {
     it('returns the neighborhood cells of the cell', () => {
-      const world = Immutable.List([
-        Immutable.List([0, 1, 0, 0]),
-        Immutable.List([1, 0, 1, 0]),
-        Immutable.List([1, 0, 1, 0]),
-        Immutable.List([1, 0, 1, 0]),
-      ]);
-      const neighborhood = World.neighborhood(world, 1, 2).toArray();
+      const world = [
+        [0, 1, 0, 0],
+        [1, 0, 1, 0],
+        [1, 0, 1, 0],
+        [1, 0, 1, 0],
+      ];
+      const neighborhood = World.neighborhood(world, 1, 2);
 
       expect(neighborhood).toEqual([1, 1, 1, 0, 0, 1, 1, 1]);
     });
 
     describe('when coordinates are in a corner', () => {
       it('returns the neighborhood cells of the cell', () => {
-        const world = Immutable.List([
-          Immutable.List([0, 1, 0]),
-          Immutable.List([1, 0, 1]),
-          Immutable.List([1, 0, 1]),
-        ]);
-        const neighborhood = World.neighborhood(world, 2, 2).toArray();
+        const world = [
+          [0, 1, 0],
+          [1, 0, 1],
+          [1, 0, 1],
+        ];
+        const neighborhood = World.neighborhood(world, 2, 2);
 
         expect(neighborhood).toEqual([0, 0, 1]);
       });
