@@ -42,7 +42,7 @@ describe('World', () => {
 
       for (let i = 0; i < 2; i += 1) {
         for (let j = 0; j < 2; j += 1) {
-          const cell = world.get(j).get(i);
+          const cell = world[i][j];
           expect(cell).toEqual(i + 2 * j);
         }
       }
