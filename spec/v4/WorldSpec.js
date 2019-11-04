@@ -78,12 +78,12 @@ describe('World', () => {
 
   describe('#aliveInNeighborhood', () => {
     it('returns the number of alive cells in the neighborhood', () => {
-      const world = Immutable.List([
-        Immutable.List([0, 1, 0, 0]),
-        Immutable.List([1, 1, 1, 0]),
-        Immutable.List([1, 0, 1, 0]),
-        Immutable.List([1, 0, 1, 0]),
-      ]);
+      const world = [
+        [0, 1, 0, 0],
+        [1, 1, 1, 0],
+        [1, 0, 1, 0],
+        [1, 0, 1, 0],
+      ];
 
       expect(World.aliveInNeighborhood(world, 1, 2)).toEqual(7);
     });
