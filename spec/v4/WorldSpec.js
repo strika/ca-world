@@ -10,11 +10,11 @@ describe('World', () => {
   describe('#isAlive', () => {
     describe('when cell is alive', () => {
       it('returns true', () => {
-        const world = Immutable.List([
-          Immutable.List([0, 0, 0]),
-          Immutable.List([0, 0, 0]),
-          Immutable.List([1, 0, 0]),
-        ]);
+        const world = [
+          [0, 0, 0],
+          [0, 0, 0],
+          [1, 0, 0],
+        ];
 
         expect(World.isAlive(world, 0, 2)).toEqual(true);
       });
@@ -22,11 +22,11 @@ describe('World', () => {
 
     describe('when cell is dead', () => {
       it('returns false', () => {
-        const world = Immutable.List([
-          Immutable.List([0, 0, 0]),
-          Immutable.List([0, 0, 0]),
-          Immutable.List([0, 0, 0]),
-        ]);
+        const world = [
+          [0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0],
+        ];
 
         expect(World.isAlive(world, 1, 1)).toEqual(false);
       });
