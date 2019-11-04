@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cellular Automata World v3</title>
+
+    <script src="../../node_modules/immutable/dist/immutable.min.js"></script>
+    <script src="World.js"></script>
+    <script src="WorldView.js"></script>
+    <script src="GameOfLife.js"></script>
+  </head>
+  <body>
+    <h1>Cellular Automata World v3</h1>
+
+    <p>
+      This experiment implements Game of Life.
+    </p>
+
+    <canvas id="world"></canvas>
+
+    <script>
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      async function experiment() {
+        var world = World.create(100, 100),
+            randomNextState = function(cell) {
+              return Math.random() > 0.5 ? 1 : 0;
+            };
+
+        world = World.nextState(world, randomNextState);
+        WorldView.display("world", world);
+        await sleep(4000);
+
+        while(true) {
+          world = World.nextState(world, GameOfLife.nextCellState);
+          WorldView.display("world", world);
+          await sleep(200);
+        }
+      }
+
+      experiment();
+    </script>
+  </body>
+</html>
